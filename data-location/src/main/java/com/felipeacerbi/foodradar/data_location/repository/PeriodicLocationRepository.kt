@@ -1,9 +1,9 @@
-package com.felipeacerbi.data_location.repository
+package com.felipeacerbi.foodradar.data_location.repository
 
-import com.felipeacerbi.core.location.Location
-import com.felipeacerbi.core.location.LocationRepository
-import com.felipeacerbi.data_location.datasource.LocationLocalDataSource
-import com.felipeacerbi.data_location.mapper.LocationDTOMapper
+import com.felipeacerbi.foodradar.core_location.Location
+import com.felipeacerbi.foodradar.core_location.LocationRepository
+import com.felipeacerbi.foodradar.data_location.datasource.LocationLocalDataSource
+import com.felipeacerbi.foodradar.data_location.mapper.LocationDTOMapper
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow

@@ -1,7 +1,7 @@
-package com.felipeacerbi.data_location.mapper
+package com.felipeacerbi.foodradar.data_location.mapper
 
-import com.felipeacerbi.core.location.Location
-import com.felipeacerbi.data_location.model.LocationDTO
+import com.felipeacerbi.foodradar.core_location.Location
+import com.felipeacerbi.foodradar.data_location.model.LocationDTO
 import javax.inject.Inject
 
 internal class LocationDTOMapper @Inject constructor() {

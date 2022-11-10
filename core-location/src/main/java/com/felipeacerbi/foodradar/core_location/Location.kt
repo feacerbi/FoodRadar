@@ -1,4 +1,4 @@
-package com.felipeacerbi.core.location
+package com.felipeacerbi.foodradar.core_location
 
 data class Location(
     val latitude: String,

@@ -1,6 +1,6 @@
-package com.felipeacerbi.data_location.datasource
+package com.felipeacerbi.foodradar.data_location.datasource
 
-import com.felipeacerbi.data_location.model.LocationDTO
+import com.felipeacerbi.foodradar.data_location.model.LocationDTO
 import javax.inject.Inject
 
 internal class LocationLocalDataSource @Inject constructor() {

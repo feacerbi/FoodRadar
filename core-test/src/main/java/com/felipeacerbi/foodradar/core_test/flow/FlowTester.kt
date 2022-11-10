@@ -1,4 +1,4 @@
-package com.felipeacerbi.core_test.flow
+package com.felipeacerbi.foodradar.core_test.flow
 
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow

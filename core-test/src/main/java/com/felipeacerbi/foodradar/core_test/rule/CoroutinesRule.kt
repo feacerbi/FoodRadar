@@ -1,4 +1,4 @@
-package com.felipeacerbi.core_test.rule
+package com.felipeacerbi.foodradar.core_test.rule
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi

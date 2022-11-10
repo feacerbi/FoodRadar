@@ -1,7 +1,7 @@
-package com.felipeacerbi.data_location.di
+package com.felipeacerbi.foodradar.data_location.di
 
-import com.felipeacerbi.core.location.LocationRepository
-import com.felipeacerbi.data_location.repository.PeriodicLocationRepository
+import com.felipeacerbi.foodradar.core_location.LocationRepository
+import com.felipeacerbi.foodradar.data_location.repository.PeriodicLocationRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

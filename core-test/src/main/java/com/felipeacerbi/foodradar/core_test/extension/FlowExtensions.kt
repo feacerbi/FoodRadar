@@ -1,8 +1,8 @@
-package com.felipeacerbi.core_test.extension
+package com.felipeacerbi.foodradar.core_test.extension
 
-import com.felipeacerbi.core_test.flow.FlowTester
-import com.felipeacerbi.core_test.flow.FlowTester.FlowSize.Multiple
-import com.felipeacerbi.core_test.flow.FlowTester.FlowSize.Single
+import com.felipeacerbi.foodradar.core_test.flow.FlowTester
+import com.felipeacerbi.foodradar.core_test.flow.FlowTester.FlowSize.Multiple
+import com.felipeacerbi.foodradar.core_test.flow.FlowTester.FlowSize.Single
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
 
