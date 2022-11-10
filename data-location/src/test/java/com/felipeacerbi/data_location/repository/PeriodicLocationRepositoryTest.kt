@@ -47,7 +47,7 @@ internal class PeriodicLocationRepositoryTest {
     }
 
     @Test
-    fun `Given LocationDTO list Then emits 1 Location every 10 seconds`() = coroutinesRule.runTest {
+    fun `Given 3 coordinates and 30 seconds Then emits 3 locations`() = coroutinesRule.runTest {
         val expectedLocations = listOf(location1, location2, location3)
 
         val result = flowTester(count = 3) { periodicLocationRepository.getCurrentLocation() }
@@ -57,7 +57,17 @@ internal class PeriodicLocationRepositoryTest {
     }
 
     @Test
-    fun `Given LocationDTO list is fully emitted Then emits it over again`() = coroutinesRule.runTest {
+    fun `Given 3 coordinates and 10 seconds Then emits 1 location`() = coroutinesRule.runTest {
+        val expectedLocations = listOf(location1)
+
+        val result = flowTester(count = 1) { periodicLocationRepository.getCurrentLocation() }
+        advanceTimeBy(10_000)
+
+        assertEquals(expectedLocations, result.values)
+    }
+
+    @Test
+    fun `Given 3 coordinates and 90 seconds Then emits 3 times each location`() = coroutinesRule.runTest {
         val expectedEmissions = 3
 
         val result = flowTester(count = 9) { periodicLocationRepository.getCurrentLocation() }
