@@ -9,7 +9,7 @@ pluginManagement {
     }
 }
 
-enableFeaturePreview("VERSION_CATALOGS")
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
@@ -21,3 +21,6 @@ dependencyResolutionManagement {
 
 rootProject.name = "FoodRadar"
 include ':app'
+include ':core-location'
+include ':core-test'
+include ':data-location'
