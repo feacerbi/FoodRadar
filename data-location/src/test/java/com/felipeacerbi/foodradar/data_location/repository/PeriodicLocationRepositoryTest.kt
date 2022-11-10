@@ -5,7 +5,7 @@ import com.felipeacerbi.foodradar.core_test.extension.flowTester
 import com.felipeacerbi.foodradar.core_test.rule.CoroutinesRule
 import com.felipeacerbi.foodradar.data_location.datasource.LocationLocalDataSource
 import com.felipeacerbi.foodradar.data_location.mapper.LocationDTOMapper
-import com.felipeacerbi.foodradar.data_location.model.LocationDTO
+import com.felipeacerbi.foodradar.data_location.model.LocationDto
 import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -30,9 +30,9 @@ internal class PeriodicLocationRepositoryTest {
         coroutinesRule.testDispatcher
     )
 
-    private val locationDto1 = LocationDTO(2.0, 3.0)
-    private val locationDto2 = LocationDTO(1.0, 2.0)
-    private val locationDto3 = LocationDTO(4.0, 5.0)
+    private val locationDto1 = LocationDto(2.0, 3.0)
+    private val locationDto2 = LocationDto(1.0, 2.0)
+    private val locationDto3 = LocationDto(4.0, 5.0)
     private val location1 = Location("2.0", "3.0")
     private val location2 = Location("1.0", "2.0")
     private val location3 = Location("4.0", "5.0")
