@@ -13,7 +13,7 @@ import javax.inject.Inject
 internal class PeriodicLocationRepository @Inject constructor(
     private val locationLocalDataSource: LocationLocalDataSource,
     private val locationDTOMapper: LocationDTOMapper,
-    private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO
+    private val defaultDispatcher: CoroutineDispatcher = Dispatchers.Default
 ) : LocationRepository {
 
     override fun getCurrentLocation(): Flow<Location> = flow {
@@ -25,7 +25,7 @@ internal class PeriodicLocationRepository @Inject constructor(
                 delay(INTERVAL)
             }
         }
-    }.flowOn(ioDispatcher)
+    }.flowOn(defaultDispatcher)
 
     companion object {
         private const val INTERVAL: Long = 10_000

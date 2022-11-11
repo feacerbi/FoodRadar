@@ -26,8 +26,10 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/build-setup" />
             <option value="$PROJECT_DIR$/build-setup/plugins" />
+            <option value="$PROJECT_DIR$/core-favorite" />
             <option value="$PROJECT_DIR$/core-location" />
             <option value="$PROJECT_DIR$/core-test" />
+            <option value="$PROJECT_DIR$/data-favorite" />
             <option value="$PROJECT_DIR$/data-location" />
           </set>
         </option>

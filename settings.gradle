@@ -21,6 +21,8 @@ dependencyResolutionManagement {
 
 rootProject.name = "FoodRadar"
 include ':app'
+include ':core-favorite'
 include ':core-location'
 include ':core-test'
+include ':data-favorite'
 include ':data-location'
