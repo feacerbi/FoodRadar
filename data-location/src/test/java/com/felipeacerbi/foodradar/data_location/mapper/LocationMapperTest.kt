@@ -5,9 +5,9 @@ import com.felipeacerbi.foodradar.data_location.model.LocationDto
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
-internal class LocationDtoMapperTest {
+internal class LocationMapperTest {
 
-    private val mapper = LocationDTOMapper()
+    private val mapper = LocationMapper()
 
     @Test
     fun `Given a LocationDTO with doubles Then maps to a Location with strings`() {

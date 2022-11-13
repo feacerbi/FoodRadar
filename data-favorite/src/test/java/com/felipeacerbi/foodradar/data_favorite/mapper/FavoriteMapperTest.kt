@@ -5,9 +5,9 @@ import com.felipeacerbi.foodradar.data_favorite.model.FavoriteDto
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
-internal class FavoriteDtoMapperTest {
+internal class FavoriteMapperTest {
 
-    private val mapper = FavoriteDtoMapper()
+    private val mapper = FavoriteMapper()
 
     @Test
     fun `Given a FavoriteDto Then maps to a Favorite `() {

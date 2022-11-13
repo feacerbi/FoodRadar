@@ -4,7 +4,7 @@ import com.felipeacerbi.foodradar.core_location.Location
 import com.felipeacerbi.foodradar.core_test.extension.flowTester
 import com.felipeacerbi.foodradar.core_test.rule.CoroutinesRule
 import com.felipeacerbi.foodradar.data_location.datasource.LocationLocalDataSource
-import com.felipeacerbi.foodradar.data_location.mapper.LocationDTOMapper
+import com.felipeacerbi.foodradar.data_location.mapper.LocationMapper
 import com.felipeacerbi.foodradar.data_location.model.LocationDto
 import io.mockk.every
 import io.mockk.mockk
@@ -22,11 +22,11 @@ internal class PeriodicLocationRepositoryTest {
     val coroutinesRule = CoroutinesRule()
 
     private val localDataSource = mockk<LocationLocalDataSource>()
-    private val locationDTOMapper = mockk<LocationDTOMapper>()
+    private val locationMapper = mockk<LocationMapper>()
 
     private val periodicLocationRepository = PeriodicLocationRepository(
         localDataSource,
-        locationDTOMapper,
+        locationMapper,
         coroutinesRule.testDispatcher
     )
 
@@ -41,9 +41,9 @@ internal class PeriodicLocationRepositoryTest {
     @Before
     fun setUp() {
         every { localDataSource.fixedCoordinates } returns coordinates
-        every { locationDTOMapper.map(locationDto1) } returns location1
-        every { locationDTOMapper.map(locationDto2) } returns location2
-        every { locationDTOMapper.map(locationDto3) } returns location3
+        every { locationMapper.map(locationDto1) } returns location1
+        every { locationMapper.map(locationDto2) } returns location2
+        every { locationMapper.map(locationDto3) } returns location3
     }
 
     @Test

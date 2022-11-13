@@ -4,7 +4,7 @@ import com.felipeacerbi.foodradar.core_favorite.Favorite
 import com.felipeacerbi.foodradar.core_test.extension.flowTester
 import com.felipeacerbi.foodradar.core_test.rule.CoroutinesRule
 import com.felipeacerbi.foodradar.data_favorite.db.FavoriteDao
-import com.felipeacerbi.foodradar.data_favorite.mapper.FavoriteDtoMapper
+import com.felipeacerbi.foodradar.data_favorite.mapper.FavoriteMapper
 import com.felipeacerbi.foodradar.data_favorite.model.FavoriteDto
 import io.mockk.*
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -21,11 +21,11 @@ internal class DeviceFavoriteRepositoryTest {
     val coroutinesRule = CoroutinesRule()
 
     private val favoriteDao = mockk<FavoriteDao>()
-    private val favoriteDtoMapper = mockk<FavoriteDtoMapper>()
+    private val favoriteMapper = mockk<FavoriteMapper>()
 
     private val deviceFavoriteRepository = DeviceFavoriteRepository(
         favoriteDao,
-        favoriteDtoMapper,
+        favoriteMapper,
         coroutinesRule.testDispatcher
     )
 
@@ -41,9 +41,9 @@ internal class DeviceFavoriteRepositoryTest {
     fun setUp() {
         every { favoriteDao.getAll() } returns flowOf(saved)
         every { favoriteDao.insert(any()) } just runs
-        every { favoriteDtoMapper.map(favoriteDto1) } returns favorite1
-        every { favoriteDtoMapper.map(favoriteDto2) } returns favorite2
-        every { favoriteDtoMapper.map(favoriteDto3) } returns favorite3
+        every { favoriteMapper.map(favoriteDto1) } returns favorite1
+        every { favoriteMapper.map(favoriteDto2) } returns favorite2
+        every { favoriteMapper.map(favoriteDto3) } returns favorite3
     }
 
     @Test

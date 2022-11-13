@@ -3,7 +3,7 @@ package com.felipeacerbi.foodradar.data_location.repository
 import com.felipeacerbi.foodradar.core_location.Location
 import com.felipeacerbi.foodradar.core_location.LocationRepository
 import com.felipeacerbi.foodradar.data_location.datasource.LocationLocalDataSource
-import com.felipeacerbi.foodradar.data_location.mapper.LocationDTOMapper
+import com.felipeacerbi.foodradar.data_location.mapper.LocationMapper
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -12,7 +12,7 @@ import javax.inject.Inject
 
 internal class PeriodicLocationRepository @Inject constructor(
     private val locationLocalDataSource: LocationLocalDataSource,
-    private val locationDTOMapper: LocationDTOMapper,
+    private val locationMapper: LocationMapper,
     private val defaultDispatcher: CoroutineDispatcher = Dispatchers.Default
 ) : LocationRepository {
 
@@ -21,7 +21,7 @@ internal class PeriodicLocationRepository @Inject constructor(
 
         while (currentCoroutineContext().isActive) {
             for (entry in coordinates) {
-                emit(locationDTOMapper.map(entry))
+                emit(locationMapper.map(entry))
                 delay(INTERVAL)
             }
         }

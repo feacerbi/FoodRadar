@@ -3,6 +3,7 @@
 plugins {
     id("com.android.library")
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.hilt)
     alias(libs.plugins.ksp)
     kotlin("kapt")
 }
@@ -32,13 +33,19 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    kapt {
+        correctErrorTypes = true
+    }
+}
+
+hilt {
+    enableAggregatingTask = true
 }
 
 dependencies {
     implementation(projects.coreFavorite)
     implementation(libs.kotlin.stdLib)
     implementation(libs.coroutines.core)
-    implementation(libs.javax.inject)
     implementation(libs.hilt.android)
     implementation(libs.room)
     implementation(libs.room.ktx)

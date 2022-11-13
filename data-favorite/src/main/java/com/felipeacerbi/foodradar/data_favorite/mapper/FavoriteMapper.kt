@@ -4,7 +4,7 @@ import com.felipeacerbi.foodradar.core_favorite.Favorite
 import com.felipeacerbi.foodradar.data_favorite.model.FavoriteDto
 import javax.inject.Inject
 
-internal class FavoriteDtoMapper @Inject constructor() {
+internal class FavoriteMapper @Inject constructor() {
 
     fun map(favoriteDto: FavoriteDto): Favorite =
         Favorite(
