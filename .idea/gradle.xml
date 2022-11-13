@@ -26,9 +26,12 @@
             <option value="$PROJECT_DIR$/build-setup" />
             <option value="$PROJECT_DIR$/core-favorite" />
             <option value="$PROJECT_DIR$/core-location" />
+            <option value="$PROJECT_DIR$/core-network" />
+            <option value="$PROJECT_DIR$/core-restaurant" />
             <option value="$PROJECT_DIR$/core-test" />
             <option value="$PROJECT_DIR$/data-favorite" />
             <option value="$PROJECT_DIR$/data-location" />
+            <option value="$PROJECT_DIR$/data-restaurant" />
           </set>
         </option>
       </GradleProjectSettings>

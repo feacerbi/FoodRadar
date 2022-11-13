@@ -2,7 +2,9 @@
 
 plugins {
     id("com.android.application")
-    id("org.jetbrains.kotlin.android")
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.hilt)
+    kotlin("kapt")
 }
 
 android {
@@ -23,7 +25,11 @@ android {
     }
 
     buildTypes {
-        release {
+        val debug by getting {
+            buildConfigField("String", "BASE_ENDPOINT_URL", "\"https://example.com\"")
+        }
+        val release by getting {
+            initWith(debug)
             isMinifyEnabled = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
@@ -51,6 +57,8 @@ dependencies {
     implementation(libs.compose.ui)
     implementation(libs.compose.toolingPreview)
     implementation(libs.compose.material)
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junitExt)
     androidTestImplementation(libs.espresso.core)

@@ -10,10 +10,14 @@ javaxInject = "1"
 junit = "4.13.2"
 junitExt = "1.1.4"
 kotlin = "1.7.20"
+kotlinSerialization = "1.4.1"
 ksp = "1.7.20-1.0.8"
 lifecycle = "2.5.1"
 material3 = "1.1.0-alpha02"
 mockk = "1.13.2"
+okhttp = "4.10.0"
+retrofit = "2.9.0"
+retrofitJsonConverter = "0.8.0"
 room = "2.4.3"
 
 [libraries]
@@ -35,8 +39,12 @@ hilt-core = { group = "com.google.dagger", name = "hilt-core", version.ref = "hi
 javax-inject = { group = "javax.inject", name = "javax.inject", version.ref = "javaxInject" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 kotlin-stdLib = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib", version.ref = "kotlin" }
+kotlin-serialization = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinSerialization" }
 lifecycle-runtime = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle" }
 mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
+okhttp = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp" }
+retrofit-core = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
+retrofit-kotlinSerialization = { group = "com.jakewharton.retrofit", name = "retrofit2-kotlinx-serialization-converter", version.ref = "retrofitJsonConverter" }
 room = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
 room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
 room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
@@ -53,4 +61,5 @@ android-library = { id = "com.android.library", version.ref = "androidGradlePlug
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }

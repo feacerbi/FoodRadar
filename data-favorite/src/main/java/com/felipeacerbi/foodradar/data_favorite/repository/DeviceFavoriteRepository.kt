@@ -20,7 +20,7 @@ internal class DeviceFavoriteRepository @Inject constructor(
 
     override fun getFavorites(): Flow<List<Favorite>> =
         favoriteDao.getAll()
-            .map { list -> list.map { favoriteMapper.map(it) } }
+            .map { list -> list.map(favoriteMapper::map) }
             .flowOn(ioDispatcher)
 
     override fun setFavorite(id: String, isFavorite: Boolean) {
