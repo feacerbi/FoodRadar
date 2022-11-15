@@ -6,7 +6,7 @@ import com.felipeacerbi.foodradar.data_restaurant.datasource.RestaurantRemoteDat
 import com.felipeacerbi.foodradar.data_restaurant.mapper.RestaurantMapper
 import javax.inject.Inject
 
-internal class NearbyRestaurantRepository @Inject constructor(
+internal class GeolocationRestaurantRepository @Inject constructor(
     private val restaurantRemoteDataSource: RestaurantRemoteDataSource,
     private val restaurantMapper: RestaurantMapper
 ) : RestaurantRepository {

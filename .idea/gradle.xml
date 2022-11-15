@@ -32,6 +32,7 @@
             <option value="$PROJECT_DIR$/data-favorite" />
             <option value="$PROJECT_DIR$/data-location" />
             <option value="$PROJECT_DIR$/data-restaurant" />
+            <option value="$PROJECT_DIR$/feature-radar" />
           </set>
         </option>
       </GradleProjectSettings>

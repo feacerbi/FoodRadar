@@ -13,7 +13,7 @@ import org.junit.Rule
 import org.junit.Test
 
 @ExperimentalCoroutinesApi
-class NearbyRestaurantRepositoryTest {
+class GeolocationRestaurantRepositoryTest {
 
     @get:Rule
     val coroutinesRule = CoroutinesRule()
@@ -21,7 +21,7 @@ class NearbyRestaurantRepositoryTest {
     private val restaurantRemoteDataSource = mockk<RestaurantRemoteDataSource>()
     private val restaurantMapper = mockk<RestaurantMapper>()
 
-    private val nearbyRestaurantRepository = NearbyRestaurantRepository(
+    private val geolocationRestaurantRepository = GeolocationRestaurantRepository(
         restaurantRemoteDataSource,
         restaurantMapper
     )
@@ -38,7 +38,7 @@ class NearbyRestaurantRepositoryTest {
         coEvery { restaurantRemoteDataSource.fetchRestaurants(latitudeDouble, longitudeDouble) } returns results
         coEvery { restaurantMapper.map(results) } returns expectedResult
 
-        val result = nearbyRestaurantRepository.getRestaurantsByLocation(latitude, longitude)
+        val result = geolocationRestaurantRepository.getRestaurantsByLocation(latitude, longitude)
 
         assertEquals(expectedResult, result)
     }
