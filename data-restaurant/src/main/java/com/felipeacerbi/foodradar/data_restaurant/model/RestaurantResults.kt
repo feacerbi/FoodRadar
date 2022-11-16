@@ -7,7 +7,7 @@ import kotlinx.serialization.Serializable
 internal data class RestaurantResults(
     val created: Created,
     @SerialName("expires_in_seconds") val expiresInSeconds: Int,
-    val filters: Filters,
+    @SerialName("filtering") val filters: Filters,
     val name: String,
     @SerialName("page_title") val pageTitle: String,
     val sections: List<Section>,

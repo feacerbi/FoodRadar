@@ -10,5 +10,5 @@ internal data class Link(
     @SerialName("target_title") val targetTitle: String,
     val title: String,
     val type: String,
-    @SerialName("venue_mainimage_blurhash") val venueMainImageBlurHash: String
+    @SerialName("venue_mainimage_blurhash") val venueMainImageBlurHash: String = ""
 )
