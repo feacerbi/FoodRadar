@@ -24,7 +24,8 @@ class GeolocationRestaurantRepositoryTest {
 
     private val geolocationRestaurantRepository = GeolocationRestaurantRepository(
         restaurantRemoteDataSource,
-        restaurantMapper
+        restaurantMapper,
+        coroutinesRule.testDispatcher
     )
 
     @Test

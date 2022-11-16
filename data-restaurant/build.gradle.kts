@@ -9,7 +9,7 @@ plugins {
 }
 
 android {
-    namespace = "com.felipeacerbi.foodradar.data_favorite"
+    namespace = "com.felipeacerbi.foodradar.data_restaurant"
     compileSdk = 33
 
     defaultConfig {

@@ -37,7 +37,7 @@ class ToggleFavoriteUseCaseTest {
 
         toggleFavoriteUseCase(id)
 
-        verify { favoriteRepository.setFavorite(expectedFavorite) }
+        coVerify { favoriteRepository.setFavorite(expectedFavorite) }
     }
 
     @Test
@@ -49,7 +49,7 @@ class ToggleFavoriteUseCaseTest {
 
         toggleFavoriteUseCase(id)
 
-        verify { favoriteRepository.setFavorite(expectedFavorite) }
+        coVerify { favoriteRepository.setFavorite(expectedFavorite) }
     }
 
     @Test
@@ -61,6 +61,6 @@ class ToggleFavoriteUseCaseTest {
 
         toggleFavoriteUseCase(id)
 
-        verify { favoriteRepository.setFavorite(expectedFavorite) }
+        coVerify { favoriteRepository.setFavorite(expectedFavorite) }
     }
 }

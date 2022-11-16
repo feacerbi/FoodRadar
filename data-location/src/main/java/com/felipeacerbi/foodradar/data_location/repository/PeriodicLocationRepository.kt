@@ -3,17 +3,21 @@ package com.felipeacerbi.foodradar.data_location.repository
 import com.felipeacerbi.foodradar.core_location.Location
 import com.felipeacerbi.foodradar.core_location.LocationRepository
 import com.felipeacerbi.foodradar.data_location.datasource.LocationLocalDataSource
+import com.felipeacerbi.foodradar.data_location.di.DefaultDispatcher
 import com.felipeacerbi.foodradar.data_location.mapper.LocationMapper
-import kotlinx.coroutines.*
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.currentCoroutineContext
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.isActive
 import javax.inject.Inject
 
 internal class PeriodicLocationRepository @Inject constructor(
     private val locationLocalDataSource: LocationLocalDataSource,
     private val locationMapper: LocationMapper,
-    private val defaultDispatcher: CoroutineDispatcher = Dispatchers.Default
+    @DefaultDispatcher private val defaultDispatcher: CoroutineDispatcher
 ) : LocationRepository {
 
     override fun getCurrentLocation(): Flow<Location> = flow {
