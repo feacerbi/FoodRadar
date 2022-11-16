@@ -44,11 +44,10 @@ internal class RadarViewModel(
         }
     }
 
-    private fun handleEvent(event: Event) {
+    private fun handleEvent(event: Event) =
         when (event) {
             is ToggleFavorite -> toggleFavorite(event.id)
         }
-    }
 
     private fun toggleFavorite(id: String) = viewModelScope.launch {
         toggleFavoriteUseCase(id)
