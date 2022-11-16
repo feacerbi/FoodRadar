@@ -4,7 +4,6 @@ import com.felipeacerbi.foodradar.core_favorite.Favorite
 import com.felipeacerbi.foodradar.core_favorite.FavoriteRepository
 import com.felipeacerbi.foodradar.data_favorite.db.FavoriteDao
 import com.felipeacerbi.foodradar.data_favorite.mapper.FavoriteMapper
-import com.felipeacerbi.foodradar.data_favorite.model.FavoriteDto
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
@@ -23,7 +22,7 @@ internal class DeviceFavoriteRepository @Inject constructor(
             .map { list -> list.map(favoriteMapper::map) }
             .flowOn(ioDispatcher)
 
-    override fun setFavorite(id: String, isFavorite: Boolean) {
-        favoriteDao.insert(FavoriteDto(id, isFavorite))
+    override fun setFavorite(favorite: Favorite) {
+        favoriteDao.insert(favoriteMapper.map(favorite))
     }
 }

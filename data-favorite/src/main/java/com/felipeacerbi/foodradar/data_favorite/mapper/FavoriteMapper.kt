@@ -11,4 +11,10 @@ internal class FavoriteMapper @Inject constructor() {
             id = favoriteDto.id,
             isFavorite = favoriteDto.isFavorite
         )
+
+    fun map(favorite: Favorite): FavoriteDto =
+        FavoriteDto(
+            id = favorite.id,
+            isFavorite = favorite.isFavorite
+        )
 }
