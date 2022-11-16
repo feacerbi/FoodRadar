@@ -1,5 +1,6 @@
 package com.felipeacerbi.foodradar.data_restaurant.datasource
 
+import com.felipeacerbi.foodradar.core_test.extension.runTest
 import com.felipeacerbi.foodradar.core_test.rule.CoroutinesRule
 import com.felipeacerbi.foodradar.data_restaurant.api.RestaurantApi
 import com.felipeacerbi.foodradar.data_restaurant.model.RestaurantResults
@@ -23,7 +24,7 @@ class RestaurantRemoteDataSourceTest {
     )
 
     @Test
-    fun `Given latitude and longitude Then returns results from the api`() = coroutinesRule.runTest {
+    fun `Given latitude and longitude Then returns results from the api`() = runTest {
         val latitude = 12.5
         val longitude = 20.2
         val expectedResult = mockk<RestaurantResults>()

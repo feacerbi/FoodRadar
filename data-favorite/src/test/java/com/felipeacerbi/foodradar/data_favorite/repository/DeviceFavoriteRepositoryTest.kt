@@ -2,6 +2,7 @@ package com.felipeacerbi.foodradar.data_favorite.repository
 
 import com.felipeacerbi.foodradar.core_favorite.Favorite
 import com.felipeacerbi.foodradar.core_test.extension.flowTester
+import com.felipeacerbi.foodradar.core_test.extension.runTest
 import com.felipeacerbi.foodradar.core_test.rule.CoroutinesRule
 import com.felipeacerbi.foodradar.data_favorite.db.FavoriteDao
 import com.felipeacerbi.foodradar.data_favorite.mapper.FavoriteMapper
@@ -47,7 +48,7 @@ internal class DeviceFavoriteRepositoryTest {
     }
 
     @Test
-    fun `getFavorites Given saved favorites Then returns favorites list`() = coroutinesRule.runTest {
+    fun `getFavorites Given saved favorites Then returns favorites list`() = runTest {
         val expectedFavorites = listOf(favorite1, favorite2, favorite3)
 
         val result = flowTester { deviceFavoriteRepository.getFavorites() }
@@ -61,7 +62,7 @@ internal class DeviceFavoriteRepositoryTest {
         val isFavorite = true
         val expectedFavoriteDto = FavoriteDto(id, isFavorite)
 
-        deviceFavoriteRepository.setFavorite(id, isFavorite)
+        deviceFavoriteRepository.setFavorite(Favorite(id, isFavorite))
 
         verify { favoriteDao.insert(expectedFavoriteDto) }
     }

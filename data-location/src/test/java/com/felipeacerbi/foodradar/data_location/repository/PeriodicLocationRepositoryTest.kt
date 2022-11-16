@@ -2,6 +2,7 @@ package com.felipeacerbi.foodradar.data_location.repository
 
 import com.felipeacerbi.foodradar.core_location.Location
 import com.felipeacerbi.foodradar.core_test.extension.flowTester
+import com.felipeacerbi.foodradar.core_test.extension.runTest
 import com.felipeacerbi.foodradar.core_test.rule.CoroutinesRule
 import com.felipeacerbi.foodradar.data_location.datasource.LocationLocalDataSource
 import com.felipeacerbi.foodradar.data_location.mapper.LocationMapper
@@ -47,7 +48,7 @@ internal class PeriodicLocationRepositoryTest {
     }
 
     @Test
-    fun `Given 3 coordinates and 30 seconds Then emits 3 locations`() = coroutinesRule.runTest {
+    fun `Given 3 coordinates and 30 seconds Then emits 3 locations`() = runTest {
         val expectedLocations = listOf(location1, location2, location3)
 
         val result = flowTester(count = 3) { periodicLocationRepository.getCurrentLocation() }
@@ -57,7 +58,7 @@ internal class PeriodicLocationRepositoryTest {
     }
 
     @Test
-    fun `Given 3 coordinates and 10 seconds Then emits 1 location`() = coroutinesRule.runTest {
+    fun `Given 3 coordinates and 10 seconds Then emits 1 location`() = runTest {
         val expectedLocations = listOf(location1)
 
         val result = flowTester(count = 1) { periodicLocationRepository.getCurrentLocation() }
@@ -67,7 +68,7 @@ internal class PeriodicLocationRepositoryTest {
     }
 
     @Test
-    fun `Given 3 coordinates and 90 seconds Then emits 3 times each location`() = coroutinesRule.runTest {
+    fun `Given 3 coordinates and 90 seconds Then emits 3 times each location`() = runTest {
         val expectedEmissions = 3
 
         val result = flowTester(count = 9) { periodicLocationRepository.getCurrentLocation() }

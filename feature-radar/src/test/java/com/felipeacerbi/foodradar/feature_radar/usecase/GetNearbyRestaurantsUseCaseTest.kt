@@ -3,6 +3,7 @@ package com.felipeacerbi.foodradar.feature_radar.usecase
 import com.felipeacerbi.foodradar.core_location.Location
 import com.felipeacerbi.foodradar.core_location.LocationRepository
 import com.felipeacerbi.foodradar.core_test.extension.flowTester
+import com.felipeacerbi.foodradar.core_test.extension.runTest
 import com.felipeacerbi.foodradar.core_test.rule.CoroutinesRule
 import com.felipeacerbi.foodradar.feature_radar.mapper.RestaurantResultMapper
 import com.felipeacerbi.foodradar.feature_radar.model.RestaurantResult
@@ -35,7 +36,7 @@ class GetNearbyRestaurantsUseCaseTest {
     )
 
     @Test
-    fun `Given a new location Then returns a list of nearby restaurants`() = coroutinesRule.runTest {
+    fun `Given a new location Then returns a list of nearby restaurants`() = runTest {
         val location = Location("10", "20")
         val restaurantWithFavorite1 = mockk<RestaurantWithFavorite>()
         val restaurantWithFavorite2 = mockk<RestaurantWithFavorite>()
@@ -53,7 +54,7 @@ class GetNearbyRestaurantsUseCaseTest {
     }
 
     @Test
-    fun `Given 3 new locations Then returns 3 different lists of nearby restaurants`() = coroutinesRule.runTest {
+    fun `Given 3 new locations Then returns 3 different lists of nearby restaurants`() = runTest {
         val location1 = Location("10", "20")
         val location2 = Location("30", "40")
         val location3 = Location("50", "60")
@@ -82,7 +83,7 @@ class GetNearbyRestaurantsUseCaseTest {
     }
 
     @Test
-    fun `Given a new location and no results Then returns an empty list of nearby restaurants`() = coroutinesRule.runTest {
+    fun `Given a new location and no results Then returns an empty list of nearby restaurants`() = runTest {
         val location = Location("10", "20")
         val expectedRestaurantList = emptyList<RestaurantResult>()
         coEvery { locationRepository.getCurrentLocation() } returns flowOf(location)
@@ -94,7 +95,7 @@ class GetNearbyRestaurantsUseCaseTest {
     }
 
     @Test
-    fun `Given a new location and 20 results Then returns only 15 results of nearby restaurants`() = coroutinesRule.runTest {
+    fun `Given a new location and 20 results Then returns only 15 results of nearby restaurants`() = runTest {
         val location = Location("10", "20")
         val restaurantsList = (1..20).map { mockk<RestaurantWithFavorite>() }
         coEvery { locationRepository.getCurrentLocation() } returns flowOf(location)

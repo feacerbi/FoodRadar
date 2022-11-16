@@ -6,6 +6,7 @@ import com.felipeacerbi.foodradar.core_location.Location
 import com.felipeacerbi.foodradar.core_restaurant.Restaurant
 import com.felipeacerbi.foodradar.core_restaurant.RestaurantRepository
 import com.felipeacerbi.foodradar.core_test.extension.flowTester
+import com.felipeacerbi.foodradar.core_test.extension.runTest
 import com.felipeacerbi.foodradar.core_test.rule.CoroutinesRule
 import com.felipeacerbi.foodradar.feature_radar.mapper.RestaurantWithFavoriteMapper
 import com.felipeacerbi.foodradar.feature_radar.model.RestaurantWithFavorite
@@ -36,7 +37,7 @@ class GetRestaurantsWithFavoritesUseCaseTest {
     )
 
     @Test
-    fun `Given restaurants and favorites list Then returns a list of restaurants with favorites`() = coroutinesRule.runTest {
+    fun `Given restaurants and favorites list Then returns a list of restaurants with favorites`() = runTest {
         val latitude = "10"
         val longitude = "20"
         val restaurant = mockk<Restaurant>()
@@ -53,7 +54,7 @@ class GetRestaurantsWithFavoritesUseCaseTest {
     }
 
     @Test
-    fun `Given restaurants and favorites changed 3 times Then returns 3 updated lists of restaurants with favorites`() = coroutinesRule.runTest {
+    fun `Given restaurants and favorites changed 3 times Then returns 3 updated lists of restaurants with favorites`() = runTest {
         val latitude = "10"
         val longitude = "20"
         val restaurant = mockk<Restaurant>()

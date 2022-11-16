@@ -1,6 +1,7 @@
 package com.felipeacerbi.foodradar.data_restaurant.repository
 
 import com.felipeacerbi.foodradar.core_restaurant.Restaurant
+import com.felipeacerbi.foodradar.core_test.extension.runTest
 import com.felipeacerbi.foodradar.core_test.rule.CoroutinesRule
 import com.felipeacerbi.foodradar.data_restaurant.datasource.RestaurantRemoteDataSource
 import com.felipeacerbi.foodradar.data_restaurant.mapper.RestaurantMapper
@@ -27,7 +28,7 @@ class GeolocationRestaurantRepositoryTest {
     )
 
     @Test
-    fun `Given latitude and longitude Then returns mapped results from the data source`() = coroutinesRule.runTest {
+    fun `Given latitude and longitude Then returns mapped results from the data source`() = runTest {
         val latitude = "12.5"
         val longitude = "20.2"
         val latitudeDouble = 12.5
