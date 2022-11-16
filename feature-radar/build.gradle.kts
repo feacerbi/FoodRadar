@@ -48,6 +48,7 @@ dependencies {
     implementation(libs.kotlin.stdLib)
     implementation(libs.coroutines.core)
     implementation(libs.hilt.android)
+    implementation(libs.lifecycle.viewModel)
     kapt(libs.hilt.compiler)
     testImplementation(projects.coreTest)
     testImplementation(libs.junit)
