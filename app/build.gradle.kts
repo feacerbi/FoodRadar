@@ -26,7 +26,7 @@ android {
 
     buildTypes {
         val debug by getting {
-            buildConfigField("String", "BASE_ENDPOINT_URL", "\"https://restaurant-api.wolt.com/v1/\"")
+            buildConfigField("String", "BASE_ENDPOINT_URL", "\"https://example.com/\"")
         }
         val release by getting {
             initWith(debug)
