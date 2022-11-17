@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="generic_error_message">"Sorry, there was an error fetching the restaurants.\nPlease try again later."</string>
+</resources>

@@ -2,6 +2,7 @@ package com.felipeacerbi.foodradar.feature_radar.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.felipeacerbi.foodradar.feature_radar.error.ErrorHandler
 import com.felipeacerbi.foodradar.feature_radar.mapper.RestaurantUiMapper
 import com.felipeacerbi.foodradar.feature_radar.state.RadarState
 import com.felipeacerbi.foodradar.feature_radar.state.RadarStateHolder
@@ -20,7 +21,8 @@ import javax.inject.Inject
 internal class RadarViewModel @Inject constructor(
     getNearbyRestaurantsUseCase: GetNearbyRestaurantsUseCase,
     private val toggleFavoriteUseCase: ToggleFavoriteUseCase,
-    private val restaurantUiMapper: RestaurantUiMapper
+    private val restaurantUiMapper: RestaurantUiMapper,
+    private val errorHandler: ErrorHandler
 ) : ViewModel(), RadarStateHolder {
 
     private val internalEvents = MutableSharedFlow<Event>()
@@ -35,7 +37,7 @@ internal class RadarViewModel @Inject constructor(
         .map { results -> results.map(restaurantUiMapper::map) }
         .map { restaurants -> RadarState.Success(restaurants) }
         .onStart<RadarState> { emit(RadarState.Initial) }
-        .catch { emit(RadarState.Error(it.message)) }
+        .catch { emit(RadarState.Error(errorHandler.handle(it))) }
         .stateIn(
             scope = viewModelScope,
             started = SharingStarted.WhileSubscribed(FLOW_SUBSCRIPTION_TIMEOUT),

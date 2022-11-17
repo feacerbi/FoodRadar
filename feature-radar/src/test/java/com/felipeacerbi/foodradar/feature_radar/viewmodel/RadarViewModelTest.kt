@@ -3,6 +3,7 @@ package com.felipeacerbi.foodradar.feature_radar.viewmodel
 import com.felipeacerbi.foodradar.core_test.extension.flowTester
 import com.felipeacerbi.foodradar.core_test.extension.runTest
 import com.felipeacerbi.foodradar.core_test.rule.CoroutinesRule
+import com.felipeacerbi.foodradar.feature_radar.error.ErrorHandler
 import com.felipeacerbi.foodradar.feature_radar.mapper.RestaurantUiMapper
 import com.felipeacerbi.foodradar.feature_radar.model.RestaurantResult
 import com.felipeacerbi.foodradar.feature_radar.model.RestaurantUi
@@ -29,6 +30,7 @@ class RadarViewModelTest {
     private val getNearbyRestaurantsUseCase = mockk<GetNearbyRestaurantsUseCase>()
     private val toggleFavoriteUseCase = mockk<ToggleFavoriteUseCase>()
     private val restaurantUiMapper = mockk<RestaurantUiMapper>()
+    private val errorHandler = mockk<ErrorHandler>()
 
     private lateinit var radarViewModel: RadarViewModel
 
@@ -72,12 +74,14 @@ class RadarViewModelTest {
 
     @Test
     fun `Given nearby restaurants error Then updates state with error message`() = runTest {
+        val exception = Exception()
         val errorMessage = "error"
         val expectedStates = listOf(
             RadarState.Initial,
             RadarState.Error(errorMessage)
         )
-        every { getNearbyRestaurantsUseCase() } returns flow { throw Exception(errorMessage) }
+        every { getNearbyRestaurantsUseCase() } returns flow { throw exception }
+        every { errorHandler.handle(exception) } returns errorMessage
         setUpViewModel()
 
         val results = flowTester(count = expectedStates.size) {
@@ -91,7 +95,8 @@ class RadarViewModelTest {
         radarViewModel = RadarViewModel(
             getNearbyRestaurantsUseCase,
             toggleFavoriteUseCase,
-            restaurantUiMapper
+            restaurantUiMapper,
+            errorHandler
         )
     }
 }

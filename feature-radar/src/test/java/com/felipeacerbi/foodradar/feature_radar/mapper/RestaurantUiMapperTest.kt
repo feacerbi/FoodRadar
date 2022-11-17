@@ -26,6 +26,7 @@ class RestaurantUiMapperTest {
             isFavorite = isFavorite
         )
         val expectedRestaurantUi = RestaurantUi(
+            id = id,
             title = name,
             subtitle = shortDescription,
             image = imageUrl,
@@ -48,6 +49,7 @@ class RestaurantUiMapperTest {
             isFavorite = isFavorite
         )
         val expectedRestaurantUi = RestaurantUi(
+            id = id,
             title = name,
             subtitle = shortDescription,
             image = imageUrl,
