@@ -11,7 +11,7 @@ Food Radar
 
 ## System Design
 
-A draft of the project's system design can be found [here](system_design.jpeg).
+![Draft](system_design.jpeg "Draft")
 
 ## Services
 
