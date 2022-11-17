@@ -26,7 +26,7 @@ android {
 
     buildTypes {
         val debug by getting {
-            buildConfigField("String", "BASE_ENDPOINT_URL", "\"https://example.com\"")
+            buildConfigField("String", "BASE_ENDPOINT_URL", "\"https://restaurant-api.wolt.com/v1/\"")
         }
         val release by getting {
             initWith(debug)
@@ -41,28 +41,38 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    kapt {
+        correctErrorTypes = true
+    }
     buildFeatures {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.3.2"
+        kotlinCompilerExtensionVersion = libs.versions.composeCompiler.get().toString()
     }
 }
 
-dependencies {
+hilt {
+    enableAggregatingTask = true
+}
 
+dependencies {
+    implementation(projects.coreDesign)
+    implementation(projects.featureRadar)
+    implementation(projects.coreNetwork)
+    runtimeOnly(projects.dataFavorite)
+    runtimeOnly(projects.dataLocation)
+    runtimeOnly(projects.dataRestaurant)
     implementation(libs.androidx.coreKtx)
     implementation(libs.lifecycle.runtime)
     implementation(libs.androidx.activityCompose)
+    implementation(platform(libs.compose.bom))
     implementation(libs.compose.ui)
     implementation(libs.compose.toolingPreview)
     implementation(libs.compose.material)
     implementation(libs.hilt.android)
+    implementation(libs.lifecycle.runtimeCompose)
     kapt(libs.hilt.compiler)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junitExt)
-    androidTestImplementation(libs.espresso.core)
-    androidTestImplementation(libs.compose.junit)
     debugImplementation(libs.compose.tooling)
     debugImplementation(libs.compose.manifest)
 }

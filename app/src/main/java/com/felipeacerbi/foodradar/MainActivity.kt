@@ -6,38 +6,30 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.felipeacerbi.foodradar.ui.theme.FoodRadarTheme
+import androidx.lifecycle.compose.ExperimentalLifecycleComposeApi
+import com.felipeacerbi.foodradar.core_design.theming.FoodRadarTheme
+import com.felipeacerbi.foodradar.feature_radar.screen.RadarScreen
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 
+@ExperimentalLifecycleComposeApi
+@ExperimentalCoroutinesApi
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             FoodRadarTheme {
-                // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Greeting("Android")
+                    RadarScreen()
                 }
             }
         }
     }
 }
 
-@Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    FoodRadarTheme {
-        Greeting("Android")
-    }
-}

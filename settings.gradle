@@ -3,9 +3,9 @@ pluginManagement {
     includeBuild 'build-setup'
 
     repositories {
-        gradlePluginPortal()
         google()
         mavenCentral()
+        gradlePluginPortal()
     }
 }
 
@@ -21,6 +21,7 @@ dependencyResolutionManagement {
 
 rootProject.name = "FoodRadar"
 include ':app'
+include ':core-design'
 include ':core-favorite'
 include ':core-location'
 include ':core-network'
