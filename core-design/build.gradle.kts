@@ -3,12 +3,10 @@
 plugins {
     id("com.android.library")
     alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.hilt)
-    kotlin("kapt")
 }
 
 android {
-    namespace = "com.felipeacerbi.foodradar.feature_radar"
+    namespace = "com.felipeacerbi.foodradar.core_design"
     compileSdk = 33
 
     defaultConfig {
@@ -32,9 +30,6 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-    kapt {
-        correctErrorTypes = true
-    }
     buildFeatures {
         compose = true
     }
@@ -43,31 +38,14 @@ android {
     }
 }
 
-hilt {
-    enableAggregatingTask = true
-}
-
 dependencies {
-    implementation(projects.coreDesign)
-    implementation(projects.coreFavorite)
-    implementation(projects.coreLocation)
-    implementation(projects.coreRestaurant)
     implementation(libs.kotlin.stdLib)
-    implementation(libs.coroutines.core)
-    implementation(libs.hilt.android)
-    implementation(libs.lifecycle.runtimeCompose)
-    implementation(libs.lifecycle.viewModel)
-    implementation(libs.lifecycle.viewModelCompose)
+    implementation(libs.androidx.activityCompose)
     implementation(platform(libs.compose.bom))
     implementation(libs.compose.ui)
     implementation(libs.compose.toolingPreview)
     implementation(libs.compose.material)
     implementation(libs.coil.compose)
-    kapt(libs.hilt.compiler)
     debugImplementation(libs.compose.tooling)
     debugImplementation(libs.compose.manifest)
-    testImplementation(projects.coreTest)
-    testImplementation(libs.junit)
-    testImplementation(libs.mockk)
-    testImplementation(libs.coroutines.test)
 }

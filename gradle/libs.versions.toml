@@ -1,10 +1,11 @@
 [versions]
 activityCompose = "1.6.1"
 androidGradlePlugin = "7.3.1"
-compose = "1.3.1"
+coil = "2.2.2"
+compose = "2022.10.00"
+composeCompiler = "1.3.2"
 coreKtx = "1.8.0"
 coroutines = "1.6.3"
-espresso = "3.5.0"
 hilt = "2.44"
 javaxInject = "1"
 junit = "4.13.2"
@@ -12,7 +13,7 @@ junitExt = "1.1.4"
 kotlin = "1.7.20"
 kotlinSerialization = "1.4.1"
 ksp = "1.7.20-1.0.8"
-lifecycle = "2.5.1"
+lifecycle = "2.6.0-alpha03"
 material3 = "1.1.0-alpha02"
 mockk = "1.13.2"
 okhttp = "4.10.0"
@@ -24,15 +25,16 @@ room = "2.4.3"
 androidx-activityCompose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
 androidx-coreKtx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-junitExt = { group = "androidx.test.ext", name = "junit", version.ref = "junitExt" }
-compose-junit = { group = "androidx.compose.ui", name = "ui-test-junit4", version.ref = "compose" }
-compose-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest", version.ref = "compose" }
-compose-material = { group = "androidx.compose.material3", name = "material3", version.ref = "material3" }
-compose-tooling = { group = "androidx.compose.ui", name = "ui-tooling", version.ref = "compose" }
-compose-toolingPreview = { group = "androidx.compose.ui", name = "ui-tooling-preview", version.ref = "compose" }
-compose-ui = { group = "androidx.compose.ui", name = "ui", version.ref = "compose" }
+coil-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil"}
+compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "compose" }
+compose-junit = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+compose-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
+compose-material = { group = "androidx.compose.material3", name = "material3" }
+compose-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+compose-toolingPreview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+compose-ui = { group = "androidx.compose.ui", name = "ui" }
 coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutines" }
 coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "coroutines" }
-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso" }
 hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
 hilt-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt" }
 hilt-core = { group = "com.google.dagger", name = "hilt-core", version.ref = "hilt" }
@@ -40,8 +42,10 @@ javax-inject = { group = "javax.inject", name = "javax.inject", version.ref = "j
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 kotlin-stdLib = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib", version.ref = "kotlin" }
 kotlin-serialization = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinSerialization" }
-lifecycle-viewModel = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
 lifecycle-runtime = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle" }
+lifecycle-runtimeCompose = { group = "androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "lifecycle" }
+lifecycle-viewModel = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
+lifecycle-viewModelCompose = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "lifecycle" }
 mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
 okhttp = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp" }
 retrofit-core = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
