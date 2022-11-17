@@ -1,6 +1,7 @@
 package com.felipeacerbi.foodradar.feature_radar.model
 
-data class RestaurantUi(
+internal data class RestaurantUi(
+    val id: String,
     val title: String,
     val subtitle: String,
     val image: String,

@@ -2,7 +2,7 @@ package com.felipeacerbi.foodradar.feature_radar.state
 
 import com.felipeacerbi.foodradar.feature_radar.model.RestaurantUi
 
-sealed class RadarState(
+internal sealed class RadarState(
     open val restaurants: List<RestaurantUi>,
     open val isLoading: Boolean,
     open val message: String?

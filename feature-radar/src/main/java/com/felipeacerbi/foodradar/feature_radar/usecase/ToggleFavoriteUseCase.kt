@@ -5,7 +5,7 @@ import com.felipeacerbi.foodradar.core_favorite.FavoriteRepository
 import kotlinx.coroutines.flow.first
 import javax.inject.Inject
 
-class ToggleFavoriteUseCase @Inject constructor(
+internal class ToggleFavoriteUseCase @Inject constructor(
     private val favoriteRepository: FavoriteRepository
 ) {
 

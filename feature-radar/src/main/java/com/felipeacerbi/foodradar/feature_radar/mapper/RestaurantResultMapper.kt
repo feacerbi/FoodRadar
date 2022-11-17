@@ -4,7 +4,7 @@ import com.felipeacerbi.foodradar.feature_radar.model.RestaurantResult
 import com.felipeacerbi.foodradar.feature_radar.model.RestaurantWithFavorite
 import javax.inject.Inject
 
-class RestaurantResultMapper @Inject constructor() {
+internal class RestaurantResultMapper @Inject constructor() {
 
     fun map(restaurantWithFavorite: RestaurantWithFavorite) =
         RestaurantResult(

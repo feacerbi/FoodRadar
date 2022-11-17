@@ -9,16 +9,19 @@ import com.felipeacerbi.foodradar.feature_radar.state.RadarStateHolder.Event
 import com.felipeacerbi.foodradar.feature_radar.state.RadarStateHolder.Event.ToggleFavorite
 import com.felipeacerbi.foodradar.feature_radar.usecase.GetNearbyRestaurantsUseCase
 import com.felipeacerbi.foodradar.feature_radar.usecase.ToggleFavoriteUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @ExperimentalCoroutinesApi
-internal class RadarViewModel(
+@HiltViewModel
+internal class RadarViewModel @Inject constructor(
     getNearbyRestaurantsUseCase: GetNearbyRestaurantsUseCase,
     private val toggleFavoriteUseCase: ToggleFavoriteUseCase,
     private val restaurantUiMapper: RestaurantUiMapper
-) : RadarStateHolder, ViewModel() {
+) : ViewModel(), RadarStateHolder {
 
     private val internalEvents = MutableSharedFlow<Event>()
 
@@ -28,7 +31,7 @@ internal class RadarViewModel(
         }
     }
 
-    override val state: Flow<RadarState> = getNearbyRestaurantsUseCase()
+    override val state: StateFlow<RadarState> = getNearbyRestaurantsUseCase()
         .map { results -> results.map(restaurantUiMapper::map) }
         .map { restaurants -> RadarState.Success(restaurants) }
         .catch<RadarState> { emit(RadarState.Error(it.message)) }
