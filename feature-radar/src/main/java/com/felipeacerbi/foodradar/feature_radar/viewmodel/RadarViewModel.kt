@@ -34,7 +34,8 @@ internal class RadarViewModel @Inject constructor(
     override val state: StateFlow<RadarState> = getNearbyRestaurantsUseCase()
         .map { results -> results.map(restaurantUiMapper::map) }
         .map { restaurants -> RadarState.Success(restaurants) }
-        .catch<RadarState> { emit(RadarState.Error(it.message)) }
+        .onStart<RadarState> { emit(RadarState.Initial) }
+        .catch { emit(RadarState.Error(it.message)) }
         .stateIn(
             scope = viewModelScope,
             started = SharingStarted.WhileSubscribed(FLOW_SUBSCRIPTION_TIMEOUT),

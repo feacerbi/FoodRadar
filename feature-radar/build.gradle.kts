@@ -62,7 +62,6 @@ dependencies {
     implementation(libs.compose.ui)
     implementation(libs.compose.toolingPreview)
     implementation(libs.compose.material)
-    implementation(libs.coil.compose)
     kapt(libs.hilt.compiler)
     debugImplementation(libs.compose.tooling)
     debugImplementation(libs.compose.manifest)
